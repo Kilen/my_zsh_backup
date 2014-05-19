@@ -29,19 +29,40 @@ ZSH_THEME="juanghurtado"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler debian gem git git-flow github gnu-utils heroku node python rails rails3 rake ruby rvm svn zsh-syntax-highlighting)
+plugins=(osx zsh-syntax-highlighting bundler debian gem git git-flow github gnu-utils heroku node python rails rails3 rake ruby rvm svn )
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kilen/.rvm/bin
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/local/git/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kilen/.rvm/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/php5/bin:$PATH
+
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
 
 bindkey \^U backward-kill-line
+bindkey \^K vi-kill-eol
+bindkey \^a beginning-of-line
+bindkey \^e end-of-line
+bindkey '∫' backward-word
+bindkey 'ƒ' forward-word
+bindkey '˙' backward-kill-word
+bindkey '˙' backward-kill-word
+bindkey '∂' kill-word
+bindkey '≥' insert-last-word
 
-alias stagit_ssh='ssh -i ~/.ssh/gitcafe -N -D 7070 kilen@stagit'
-alias start_elastic='sudo /etc/init.d/elasticsearch start'
-alias stop_elastic='sudo /etc/init.d/elasticsearch stop'
 alias goagent='python ~/softwares/goagent/local/proxy.py'
+alias start_mysql='sudo /usr/local/mysql/bin/mysqld_safe'
+alias mysql='/usr/local/mysql/bin/mysql'
+alias mongod='sudo /Users/kilen/softwares/mongodb-osx-x86_64-2.4.5/bin/mongod'
+alias mongo='sudo /Users/kilen/softwares/mongodb-osx-x86_64-2.4.5/bin/mongo'
+alias deploy_dc='ssh zhaoyu@192.168.22.88 /home/zhaoyu/auto_pull.sh'
+alias work='cd ~/projects/teamwork'
+alias memcache='memcached -vv -l localhost -p 11211 -m 256 -P /tmp/memcached.pid -u root'
+alias ssh_gitlab='ssh zhaoyu@gitlab'
+alias ssh_gisstore='ssh platformx@gisstore'
+alias start_working='osascript ~/projects/scripts/start_working.scpt'
+alias updatedb='sudo /usr/libexec/locate.updatedb'
